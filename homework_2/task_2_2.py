@@ -57,8 +57,8 @@ class Reversed_Game(Tk):
                 self.danger_slots.append([row, column])
             if self.line_detection(row, column, 'X'):
                 if messagebox.askyesno(
-                    'Игра окончена',
-                    message='Собрана линия из пяти крестов. Начать заново?'
+                        'Игра окончена',
+                        message='Собрана линия из пяти крестов. Начать заново?'
                 ):
                     self.__init_data()
             self.computer_intellect()
@@ -70,7 +70,7 @@ class Reversed_Game(Tk):
                 horizontal += 1
             else:
                 break
-        for current_row in range(row-1, 0, -1):
+        for current_row in range(row - 1, 0, -1):
             if self.matrix[current_row][column] == char:
                 horizontal += 1
             else:
@@ -150,6 +150,7 @@ class Reversed_Game(Tk):
                             and self.matrix[new_row][new_column] not in [
                                 'X', 'O']
                     ):
+
                         self.buttons[new_row][new_column].config(text='O')
                         self.matrix[new_row][new_column] = 'O'
                         slot_number = int(new_row + new_column)
