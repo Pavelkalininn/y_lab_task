@@ -101,7 +101,7 @@ class Reversed_Game(Tk):
         temp_column = column
         while temp_column >= 0 and temp_row < 10:
 
-            if self.matrix[temp_row - 1][temp_column - 1] == char:
+            if self.matrix[temp_row + 1][temp_column - 1] == char:
                 diagonal_up_right += 1
                 temp_row += 1
                 temp_column -= 1
@@ -112,7 +112,6 @@ class Reversed_Game(Tk):
         temp_row = row
         temp_column = column
         while temp_column < 10 and temp_row < 10:
-
             if self.matrix[temp_row][temp_column] == char:
                 diagonal_up_left += 1
                 temp_row += 1
@@ -158,11 +157,16 @@ class Reversed_Game(Tk):
                             self.free_slots.remove(slot_number)
                     return
             new_random = choice(self.free_slots)
-            print(new_random)
             row = new_random // 10
             column = new_random % 10
-            if self.line_detection(row, column, 'O'):
-                self.free_slots.remove(int(row + column))
+            find_value = int(str(row) + str(column))
+            if (self.line_detection(row, column, 'O')
+                    or find_value not in self.free_slots
+                            or self.matrix[row][column] in [
+                                'X', 'O']
+            ):
+                if find_value in self.free_slots:
+                    self.free_slots.remove(int(row + column))
             else:
                 self.buttons[row][column].config(text='O')
                 self.matrix[row][column] = 'O'
