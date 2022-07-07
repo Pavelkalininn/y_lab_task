@@ -70,8 +70,8 @@ class Reversed_Game(Tk):
                 horizontal += 1
             else:
                 break
-        for current_row in range(row - 1, 0, -1):
-            if self.matrix[current_row][column] == char:
+        for current_row in range(row, -1, -1):
+            if self.matrix[current_row-1][column] == char:
                 horizontal += 1
             else:
                 break
@@ -81,8 +81,8 @@ class Reversed_Game(Tk):
                 vertical += 1
             else:
                 break
-        for current_column in range(column - 1, 0, -1):
-            if self.matrix[row][current_column] == char:
+        for current_column in range(column, -1, -1):
+            if self.matrix[row][current_column-1] == char:
                 vertical += 1
             else:
                 break
@@ -101,7 +101,7 @@ class Reversed_Game(Tk):
         temp_column = column
         while temp_column >= 0 and temp_row < 10:
 
-            if self.matrix[temp_row + 1][temp_column - 1] == char:
+            if temp_row < 9 and temp_column > 0 and self.matrix[temp_row + 1][temp_column - 1] == char:
                 diagonal_up_right += 1
                 temp_row += 1
                 temp_column -= 1
@@ -122,7 +122,7 @@ class Reversed_Game(Tk):
         temp_column = column
         while temp_column >= 0 and temp_row >= 0:
 
-            if self.matrix[temp_row - 1][temp_column - 1] == char:
+            if temp_row > 0 and temp_column > 0 and self.matrix[temp_row - 1][temp_column - 1] == char:
                 diagonal_up_left += 1
                 temp_row -= 1
                 temp_column -= 1
