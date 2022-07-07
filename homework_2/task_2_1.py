@@ -80,7 +80,18 @@ def read_input() -> List[str]:
 
 
 if __name__ == "__main__":
+    print('Введите координаты точек в формате:',
+          'Почтовое отделение – (0, 2)',
+          'Ул. Грибоедова, 104/25 – (2, 5)',
+          'Ул. Бейкер стрит, 221б – (5, 2)',
+          'Ул. Большая Садовая, 302-бис – (6, 6)',
+          'Вечнозелёная Аллея, 742 – (8, 3)',
+          '_________________________________',
+          sep='\n')
     input_data = read_input()
-    routes = Route(input_data)
-    best_routs, optimal_length = routes.get_result()
-    print(*best_routs, ' = ', optimal_length)
+    if input_data:
+        routes = Route(input_data)
+        best_routs, optimal_length = routes.get_result()
+        print(*best_routs, ' = ', optimal_length)
+    else:
+        print("Введен пустой запрос")
