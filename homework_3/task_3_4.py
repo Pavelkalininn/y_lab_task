@@ -24,18 +24,21 @@ def repeat_decorator(func):
         yield 'Начало работы'
         time_delta = start_sleep_time
         counter = 0
+        prev_check_time = 0
         while counter < call_count:
             current_time = int(time.perf_counter())
-            if current_time == time_delta:
-                if time_delta < border_sleep_time:
-                    time_delta *= 2 ** factor
-                else:
-                    time_delta = border_sleep_time
+            if counter:
+                time_delta *= 2 ** factor
+            if time_delta > border_sleep_time:
+                time_delta = border_sleep_time
+            if current_time == time_delta + prev_check_time:
                 counter += 1
                 func_result = func(2)
+                waiting_time = current_time - prev_check_time
                 yield (f'Запуск номер {counter}. '
-                       f'Ожидание: {current_time} секунд. '
+                       f'Ожидание: {waiting_time} секунд. '
                        f'Результат декорируемой функций = {func_result}.')
+                prev_check_time = current_time
         yield 'Конец работы'
     return wrapper
 
@@ -47,6 +50,6 @@ def multiplier(number: int):
 
 
 if __name__ == '__main__':
-    result = multiplier(3, 1, 2, 35)
+    result = multiplier(3, 3, 2, 15)
     for string in result:
         print(string)
