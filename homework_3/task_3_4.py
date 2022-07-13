@@ -1,19 +1,6 @@
 # Homework 3 task 2
 import time
 
-cash = {}
-
-
-def cash_decorator(func):
-    def wrapper(value):
-        if value in cash:
-            return cash[value]
-        cash_result = func(value)
-        cash[value] = cash_result
-        return cash_result
-
-    return wrapper
-
 
 def repeat_decorator(call_count: int,
                      start_sleep_time: int,
@@ -23,17 +10,16 @@ def repeat_decorator(call_count: int,
         def wrapper(
             *args, **kwargs
         ):
-            yield 'Начало работы'
+            yield f'Кол-во запусков = {call_count}. \nНачало работы'
             time_delta = start_sleep_time
             counter = 0
             prev_check_time = 0
             while counter < call_count:
                 current_time = int(time.perf_counter())
-                if counter:
-                    time_delta *= 2 ** factor
                 if time_delta > border_sleep_time:
                     time_delta = border_sleep_time
                 if current_time == time_delta + prev_check_time:
+                    time_delta *= factor
                     counter += 1
                     func_result = func(*args, **kwargs)
                     waiting_time = current_time - prev_check_time
@@ -47,8 +33,7 @@ def repeat_decorator(call_count: int,
     return actual_decorator
 
 
-@repeat_decorator(3, 2, 2, 7)
-@cash_decorator
+@repeat_decorator(5, 1, 2, 5)
 def multiplier(number: int):
     return number * 2
 
