@@ -1,36 +1,34 @@
-## Домашняя работа по курсу Y-lab
+## Homework for the Y-lab course
 
 ### Homework_1:
 
-    task_1 - парсим наименование сайта из URL
-    task_2 - выводим ip из 32 битного int
-    task_3 - выводим количество конечных нулей в факториале заданного числа
-    task_4 - Пишем метод bananas, который принимает на вход строку и
-             возвращает количество слов «banana» в строке.
-    task_5 - Пишем метод count_find_num, который принимает на вход список простых множителей (primesL) и целое число,
-             предел (limit), после чего попробуйте сгенерировать по порядку все числа.
+    task_1 - parse the name of the site from the URL
+    task_2 - output ip from 32 bit int
+    task_3 - we output the number of finite zeros in the factorial of a given number
+    task_4 - We are writing the bananas method, which takes a string as input and returns the number of words "banana" in a string.
+    task_5 - We are writing the count_find_num method, which takes as input a list of prime factors (primes) and an integer limit, after which try to generate all the numbers in order.
 
 ### Homework_2:
 
-#### task_2_1 - Китайский почтальон
-Ищем кратчайший маршрут для обхода всех заданных точек и возврата в начальную, 
-точки задаются в консоли в виде:
+#### task_2_1 - Chinese Postman
+We are looking for the shortest route to bypass all the specified points and return to the starting point,
+the points are set in the console as:
 
-    Почтовое отделение – (0, 2)
-    Ул. Грибоедова, 104/25 – (2, 5)
-    Ул. Бейкер стрит, 221б – (5, 2)
-    Ул. Большая Садовая, 302-бис – (6, 6)
-    Вечнозелёная Аллея, 742 – (8, 3)
+    Post office – (0, 2)
+    Church – (2, 5)
+    BAker street – (5, 2)
+    Ever Green street – (6, 6)
+    New era street – (8, 3)
 
-#### task_2_2 - Обратные крестики-нолики на поле 10 X 10 (проигрывает тот, кто собрал пять в ряд)
+#### task_2_2 - Reverse tic-tac-toe on a 10 X 10 field (the one who collected five in a row loses)
 
 ### Homework_3:
 
 #### task_3_1, task_3_2 - https://university.ylab.site/python/lecture-2-hw/
 
-#### task_3_3, task_3_4 и папка solid_code - https://university.ylab.site/python/lecture-3-hw/ 
+#### task_3_3, task_3_4 and directory solid_code - https://university.ylab.site/python/lecture-3-hw/ 
 
 
 ___
-### Автор: Павел Калинин
+### Author: Pavel Kalinin
 ___
